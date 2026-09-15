@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.0.0...v2.1.0) (2026-09-15)
+
+
+### Features
+
+* add configurable and auto-detected indent to pretty-format ([e4f06bf](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/e4f06bf58716eff8bc5ed59370262ab52c957382))
+
 # [2.0.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v1.1.0...v2.0.0) (2026-09-15)
 
 
