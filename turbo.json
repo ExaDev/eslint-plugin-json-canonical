@@ -1,0 +1,39 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "globalDependencies": ["pnpm-lock.yaml"],
+  "tasks": {
+    "_typecheck": {
+      "inputs": ["$TURBO_DEFAULT$", "tsconfig.json"],
+      "outputs": []
+    },
+    "_lint": {
+      "inputs": ["$TURBO_DEFAULT$", "eslint.config.ts"],
+      "outputs": [".eslintcache"]
+    },
+    "_test": {
+      "inputs": ["$TURBO_DEFAULT$", "vitest.config.ts", "vitest.setup.ts"],
+      "outputs": []
+    },
+    "_build": {
+      "inputs": ["src/**", "tsdown.config.ts"],
+      "outputs": ["dist/**"]
+    },
+    "_publint": {
+      "dependsOn": ["_build"],
+      "outputs": []
+    },
+    "_attw": {
+      "dependsOn": ["_build"],
+      "outputs": []
+    },
+    "_test:mutation": {
+      "dependsOn": ["_build"],
+      "inputs": ["src/**", "stryker.config.ts", "vitest.config.ts"],
+      "outputs": ["reports/**"]
+    },
+    "_prepublish": {
+      "dependsOn": ["_lint", "_typecheck", "_test", "_publint", "_attw"],
+      "outputs": []
+    }
+  }
+}

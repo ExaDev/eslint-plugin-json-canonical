@@ -1,0 +1,92 @@
+{
+  "name": "eslint-plugin-json-canonical",
+  "version": "0.0.0",
+  "description": "ESLint plugin enforcing RFC 8785 (JSON Canonicalization Scheme)",
+  "type": "module",
+  "sideEffects": false,
+  "license": "MIT",
+  "packageManager": "pnpm@12.4.1+sha512.2e81e399d73fe8390dab25e06aa788ab7a5908248d2f5a370f82b481147a6a7a367bf8048f9a6fdb6460f21a66f0542dedb8b94ca2c8723596741920b1656d4c",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": {
+        "import": "./dist/index.d.ts",
+        "require": "./dist/index.d.cts"
+      },
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "json",
+    "rfc8785",
+    "jcs",
+    "json-canonicalization"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExaDev/eslint-plugin-json-canonical.git"
+  },
+  "peerDependencies": {
+    "@eslint/json": "^2.1.0",
+    "eslint": ">=10.0.0"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "0.18.5",
+    "@commitlint/cli": "21.2.2",
+    "@commitlint/config-conventional": "21.2.2",
+    "@eslint/js": "10.0.1",
+    "@eslint/json": "^2.1.0",
+    "@exadev/eslint-config": "2.12.3",
+    "@humanwhocodes/momoa": "3.3.13",
+    "@semantic-release/changelog": "7.0.0",
+    "@semantic-release/git": "11.0.1",
+    "@stryker-mutator/api": "10.0.0",
+    "@stryker-mutator/core": "10.0.0",
+    "@stryker-mutator/typescript-checker": "10.0.0",
+    "@stryker-mutator/vitest-runner": "10.0.0",
+    "@types/node": "26.5.1",
+    "@vitest/coverage-v8": "4.1.11",
+    "eslint": ">=10.0.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.5.1",
+    "publint": "0.3.24",
+    "semantic-release": "25.0.9",
+    "tsdown": "0.23.0",
+    "turbo": "2.10.12",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.70.0",
+    "vitest": "4.1.11"
+  },
+  "scripts": {
+    "build": "turbo run _build",
+    "_build": "tsdown",
+    "lint": "turbo run _lint",
+    "_lint": "eslint . --fix --cache --max-warnings 0",
+    "typecheck": "turbo run _typecheck",
+    "_typecheck": "tsc -p tsconfig.json",
+    "test": "turbo run _test",
+    "_test": "vitest run",
+    "_publint": "publint",
+    "_attw": "attw --pack",
+    "test:mutation": "turbo run _test:mutation",
+    "_test:mutation": "stryker run stryker.config.ts",
+    "prepublishOnly": "turbo run _prepublish",
+    "prepare": "husky",
+    "release": "semantic-release"
+  }
+}
