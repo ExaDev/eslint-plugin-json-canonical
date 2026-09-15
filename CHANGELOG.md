@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v1.1.0...v2.0.0) (2026-09-15)
+
+
+* feat!: add pretty-format rule and make it configs.recommended's default layout ([73d43c1](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/73d43c1057b28cc1d3bcf594bc206c9132744e6f))
+
+
+### BREAKING CHANGES
+
+* configs.recommended now pretty-prints JSON by default
+instead of leaving whitespace untouched. Use configs.contentOnly for
+v1's old configs.recommended behaviour.
+
 # [1.1.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v1.0.0...v1.1.0) (2026-09-15)
 
 
