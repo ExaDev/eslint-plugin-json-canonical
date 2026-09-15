@@ -1,7 +1,7 @@
 import json from '@eslint/json';
 import { Linter } from 'eslint';
 import { describe, expect, test } from 'vitest';
-import plugin, { buildRecommendedConfig } from './plugin';
+import plugin, { buildRecommendedConfig, buildRecommendedJsoncConfig } from './plugin';
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
@@ -41,6 +41,56 @@ describe('buildRecommendedConfig', () => {
   test('carries exactly these three rules -- no more, no fewer', () => {
     const config = buildRecommendedConfig(json, plugin);
     expect(Object.keys(config.rules ?? {})).toStrictEqual(['json/sort-keys', 'json-canonical/number-format', 'json-canonical/string-escaping']);
+  });
+});
+
+describe('buildRecommendedJsoncConfig', () => {
+  test('wires the given json and self plugins in under their own fixed names, with the json/jsonc language and trailing commas allowed', () => {
+    const config = buildRecommendedJsoncConfig(json, plugin);
+    expect(config.language).toBe('json/jsonc');
+    expect(config.plugins).toStrictEqual({ json, 'json-canonical': plugin });
+    expect(config.languageOptions).toStrictEqual({ allowTrailingCommas: true });
+  });
+
+  test('carries the identical three rules as the plain-JSON config', () => {
+    const jsoncConfig = buildRecommendedJsoncConfig(json, plugin);
+    const jsonConfig = buildRecommendedConfig(json, plugin);
+    expect(jsoncConfig.rules).toStrictEqual(jsonConfig.rules);
+  });
+
+  test('a comment-free JSONC document (trailing comma only) reorders and autofixes exactly like plain JSON', () => {
+    const linter = new Linter();
+    const config = buildRecommendedJsoncConfig(json, plugin);
+    const result = linter.verifyAndFix('{"b": 1, "a": 2,}', config);
+    expect(result.fixed).toBe(true);
+    expect(result.output).toBe('{"a": 2, "b": 1,}');
+  });
+
+  test('a document with a comment attached to a member that would need to move is reported but never autofixed, so the comment can never be relocated onto the wrong member', () => {
+    // Verified directly against @eslint/json's own json/sort-keys fixer: it detects exactly this case and withholds the fix rather than risk moving "// comment on a" to sit above "b" once reordered. This rule is this package's own recommendedJsonc config exercising a real, upstream safety behaviour, not something this package implements itself.
+    const linter = new Linter();
+    const config = buildRecommendedJsoncConfig(json, plugin);
+    const input = '{\n  // leading comment\n  "b": 1,\n  // comment on a\n  "a": 2\n}';
+    const result = linter.verifyAndFix(input, config);
+    expect(result.fixed).toBe(false);
+    expect(result.output).toBe(input);
+    expect(result.messages.some((message) => message.ruleId === 'json/sort-keys')).toBe(true);
+  });
+});
+
+describe('plugin.configs.recommendedJsonc', () => {
+  test("exact shape, distinct from configs.recommended's json/json language", () => {
+    const recommendedJsonc = plugin.configs?.['recommendedJsonc'];
+    if (recommendedJsonc === undefined || Array.isArray(recommendedJsonc) || !('language' in recommendedJsonc)) {
+      throw new Error('expected plugin.configs.recommendedJsonc to be a single, flat-config-shaped config object');
+    }
+
+    expect(recommendedJsonc.language).toBe('json/jsonc');
+    expect(recommendedJsonc.languageOptions).toStrictEqual({ allowTrailingCommas: true });
+    const configPlugins = recommendedJsonc.plugins;
+    if (configPlugins === undefined || Array.isArray(configPlugins)) throw new Error('expected plugins to be a name-to-plugin record');
+    expect(configPlugins['json']).toBe(json);
+    expect(configPlugins['json-canonical']).toBe(plugin);
   });
 });
 
