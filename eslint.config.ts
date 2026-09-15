@@ -2,10 +2,8 @@ import { defineConfig } from 'eslint/config';
 import js from '@eslint/js';
 import { exadevConfig } from '@exadev/eslint-config';
 
+// exadevConfig() derives its own ignores from this repo's .gitignore automatically (auto-detected, as of @exadev/eslint-config@2.17.0) -- no separate wiring needed here any more. This is what stopped a leftover Stryker report file from getting linted as source once configs.recommended started bundling eslint-plugin-json-canonical against every JSON file by default.
 export default defineConfig(
-  {
-    ignores: ['dist', 'coverage', 'node_modules'],
-  },
   {
     languageOptions: {
       parserOptions: { project: './tsconfig.json', tsconfigRootDir: import.meta.dirname },
