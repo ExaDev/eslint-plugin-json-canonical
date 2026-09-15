@@ -47,6 +47,14 @@ All three enable the same content-canonicalization rules (`json/sort-keys`, `num
 
 `configs.recommended`'s pretty-printing is deliberately simple, not a `prettier`-compatible width-aware formatter: every non-empty object or array always breaks one member/element per line, however short, rather than packing short values onto one line the way `prettier --write` would. This is fully deterministic and needs no line-width bookkeeping, at the cost of sometimes producing a more broken-out document than Prettier would for the same input. If your project also runs Prettier over its JSON files, use `configs.contentOnly` instead so the two never disagree about layout.
 
+`pretty-format` takes one option controlling indent width: `2` or `4` (that many literal spaces), `'tab'` (one literal tab), or `'auto'` (the default) -- which detects the indent a document already uses (the whitespace after its first genuinely-indented member) and re-applies that same unit at every level, falling back to two spaces only when there's nothing to detect (an already-compact document, or one whose only containers are empty). This means a project with an established 4-space or tab-indented JSON convention isn't silently reformatted to a hardcoded default the first time this rule activates:
+
+```ts
+rules: {
+  'json-canonical/pretty-format': ['error', 4], // or 'tab', or 'auto' (the default)
+}
+```
+
 None of the four configs touch `**/tsconfig*.json`, `**/turbo.json`, or `**/package.json` for you -- scope those yourself (see the example above and [Notes on specific files](#notes-on-specific-files) below).
 
 ## Rules
