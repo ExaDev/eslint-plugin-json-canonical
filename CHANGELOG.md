@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v1.0.0...v1.1.0) (2026-09-15)
+
+
+### Features
+
+* add configs.recommendedJsonc for tsconfig.json/turbo.json-style files ([06e5744](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/06e5744abfb8032f5ef71c553f2953ff632ac0ac))
+
 # 1.0.0 (2026-09-15)
 
 
