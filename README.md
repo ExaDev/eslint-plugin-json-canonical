@@ -4,6 +4,8 @@
 
 > An ESLint plugin for [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785) (the JSON Canonicalization Scheme), built on [`@eslint/json`](https://github.com/eslint/json).
 
+[![npm downloads chart, log scale](https://shieldcn.dev/chart/npm/eslint-plugin-json-canonical.svg?bg=transparent&logo=false&yScale=log)](https://www.npmjs.com/package/eslint-plugin-json-canonical)
+
 ## Why
 
 RFC 8785 defines a byte-for-byte canonical serialization of JSON: member ordering (§3.2.3), number formatting (§3.2.2.3), string escaping (§3.2.2.2), and whitespace (§3.2.1). This plugin enforces those facets as ESLint rules, autofixable, so a JSON file can be checked and corrected the same way any other source file is.
