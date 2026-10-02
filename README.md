@@ -1,6 +1,6 @@
 # eslint-plugin-json-canonical
 
-[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/ExaDev/eslint-plugin-json-canonical) [![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/eslint-plugin-json-canonical) [![CI](https://img.shields.io/github/actions/workflow/status/ExaDev/eslint-plugin-json-canonical/ci.yml?branch=main)](https://github.com/ExaDev/eslint-plugin-json-canonical/actions)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com/ExaDev/eslint-plugin-json-canonical) [![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)](https://www.npmjs.com/package/eslint-plugin-json-canonical) [![Release](https://img.shields.io/github/v/release/ExaDev/eslint-plugin-json-canonical)](https://github.com/ExaDev/eslint-plugin-json-canonical/releases/latest) [![CI](https://img.shields.io/github/actions/workflow/status/ExaDev/eslint-plugin-json-canonical/ci.yml?branch=main)](https://github.com/ExaDev/eslint-plugin-json-canonical/actions)
 
 > An ESLint plugin for [RFC 8785](https://www.rfc-editor.org/rfc/rfc8785) (the JSON Canonicalization Scheme), built on [`@eslint/json`](https://github.com/eslint/json).
 
