@@ -1,3 +1,5 @@
+## [2.1.2](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.1...v2.1.2) (2026-10-02)
+
 ## [2.1.1](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.0...v2.1.1) (2026-10-02)
 
 # [2.1.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.0.0...v2.1.0) (2026-09-15)
