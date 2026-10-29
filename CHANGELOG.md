@@ -1,3 +1,13 @@
+## [2.1.4](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.3...v2.1.4) (2026-10-29)
+
+### Bug Fixes
+
+* list every commit type in the release notes ([068ee3d](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/068ee3d4df317ef3136fd061ab8a70f915537a47))
+
+### Documentation
+
+* list the commits behind each release that had an empty changelog entry ([edcef92](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/edcef92036b92da3481612b9b3feac0be5380967))
+
 ## [2.1.3](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.2...v2.1.3) (2026-10-06)
 
 ### Chores
