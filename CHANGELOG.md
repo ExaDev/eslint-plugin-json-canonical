@@ -1,8 +1,20 @@
 ## [2.1.3](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.2...v2.1.3) (2026-10-06)
 
+### Chores
+
+* upgrade turbo to 2.11.5 and disable agentGuidance ([26d5ba0](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/26d5ba0a1113aa0155b8894d6d2ee0d9d06e7139))
+
 ## [2.1.2](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.1...v2.1.2) (2026-10-02)
 
+### Documentation
+
+* use one shared badge set in the readme ([bc5ebd1](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/bc5ebd123f4c47f1e6ff73b5fc4fcbcccaa91a3f))
+
 ## [2.1.1](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.0...v2.1.1) (2026-10-02)
+
+### Documentation
+
+* add live usage charts to the readme ([d9cd138](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/d9cd1382241341a1f02a41bcfa853377d562247b))
 
 # [2.1.0](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.0.0...v2.1.0) (2026-09-15)
 
