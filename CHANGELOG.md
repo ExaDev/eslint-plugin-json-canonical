@@ -1,3 +1,10 @@
+## [2.1.5](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.4...v2.1.5) (2026-10-31)
+
+### Continuous Integration
+
+* push the release over SSH with a deploy key ([fa88e6b](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/fa88e6b2580f38635b6e82e4ea64cd6ce1b6e4a8))
+* push the release to the SSH repository URL ([61f457a](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/61f457a1d5769ad0c57ebf6b96dd1476d68651c2))
+
 ## [2.1.4](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.3...v2.1.4) (2026-10-29)
 
 ### Bug Fixes
