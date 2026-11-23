@@ -3,7 +3,7 @@ import type { StrykerOptions } from '@stryker-mutator/api/core';
 const config: Partial<StrykerOptions> = {
   packageManager: 'pnpm',
   testRunner: 'vitest',
-  // Explicit, not Stryker's own default auto-discovery, which resolves `@stryker-mutator/*` plugins relative to wherever `@stryker-mutator/core` itself physically lives -- under pnpm's isolated node_modules that's a different resolution root than this config's own directory, a confirmed real failure mode elsewhere in this same ecosystem (see ExaDev/monorepo-template's stryker.shared.ts).
+  // Explicit, not Stryker's own default auto-discovery, which resolves `@stryker-mutator/*` plugins relative to wherever `@stryker-mutator/core` itself physically lives: under pnpm's isolated node_modules that is a different resolution root than this config's own directory, which makes plugin resolution fail.
   plugins: ['@stryker-mutator/typescript-checker', '@stryker-mutator/vitest-runner'],
   checkers: ['typescript'],
   coverageAnalysis: 'perTest',
