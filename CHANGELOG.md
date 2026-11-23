@@ -1,3 +1,9 @@
+## [2.1.6](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.5...v2.1.6) (2026-11-23)
+
+### Chores
+
+* drop the private repository name from the stryker config comment ([71ae46b](https://github.com/ExaDev/eslint-plugin-json-canonical/commit/71ae46b67de8de0a8a1e0e0a6aec7fc816f1c517))
+
 ## [2.1.5](https://github.com/ExaDev/eslint-plugin-json-canonical/compare/v2.1.4...v2.1.5) (2026-10-31)
 
 ### Continuous Integration
